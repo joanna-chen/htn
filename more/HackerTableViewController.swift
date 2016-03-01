@@ -57,7 +57,6 @@ class HackerTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -67,15 +66,35 @@ class HackerTableViewController: UITableViewController {
         }
         return 0
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("hackerCell", forIndexPath: indexPath) as! HackersTableViewCell
 
-        let url = self.json[indexPath.row]["photo"].stringValue
+        let url = NSURL(string: self.json[indexPath.row]["picture"].stringValue)
+        let data = NSData(contentsOfURL: url!)
+        if data != nil {
+            cell.imageView!.image = UIImage(data: data!)
+            cell.imageView!.layer.cornerRadius = cell.imageView!.frame.size.width / 2;
+            cell.imageView!.clipsToBounds = true
+        }
         
-        cell.label.text = self.json[indexPath.row]["name"].stringValue
-        //cell.imageView?.image = UIImage(data: NSData(contentsOfFile: url)!)
+        var str : String = ""
+        let skills = self.json[indexPath.row]["skills"]
+        
+        for (var i=0 ; i < skills.count ; i++) {
+            var name = skills[i]["name"].stringValue
+            var rating = skills[i]["rating"].intValue
+            
+            if (i == skills.count-1) {
+                str = str + " \(name) \(rating)"
+            } else {
+                str = str + " \(name) \(rating) •"
+            }
+        }
+        
+        cell.label.numberOfLines = 2
+        cell.label.text = self.json[indexPath.row]["name"].stringValue + "\n" + str
+
         return cell
     }
     
@@ -86,7 +105,6 @@ class HackerTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destination = segue.destinationViewController as! DetailViewController
-        print(self.json[selected])
         destination.dataJSON = self.json[selected]
         destination.populate()
     }

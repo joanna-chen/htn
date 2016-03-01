@@ -13,15 +13,17 @@ import MapKit
 class DetailViewController: UIViewController, MKMapViewDelegate {
     
 
-        @IBOutlet weak var nameLabel: UILabel!
-        @IBOutlet weak var company: UILabel!
-        @IBOutlet weak var phone: UILabel!
-        @IBOutlet weak var email: UILabel!
-        @IBOutlet weak var skills: UILabel!
-        @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var company: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var skills: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var imageView: UIImageView!
     
     
     var dataJSON : JSON!
+    var str : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,33 +34,51 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         //format nav bar title
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
         nameLabel?.text = dataJSON["name"].stringValue
         company?.text = dataJSON["company"].stringValue
         phone?.text = dataJSON["phone"].stringValue
         email?.text = dataJSON["email"].stringValue
-        skills?.text = dataJSON["skills"].stringValue
+        
+        
+        let s : JSON! = dataJSON["skills"]
+        var i : Int = 0
+        skills?.numberOfLines = s.count
+        
+        while (i <= s.count) {
+            var name = s[i]["name"].stringValue
+            var rating = s[i]["rating"].intValue
+            
+            if (i == s.count-1) {
+                str = str + "\(name): \(rating)"
+                skills?.text = str
+            } else {
+                str = str + "\(name): \(rating) \n"
+            }
+            
+            i += 1
+        }
+        
         mapView.delegate = self
         let latitude = dataJSON["latitude"].doubleValue
         let longitude = dataJSON["longitude"].doubleValue
-        print(latitude,longitude)
+        //print(latitude,longitude)
         let center = CLLocationCoordinate2DMake(latitude, longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpanMake(0.01, 0.01))
         mapView.setRegion(region, animated: true)
 
-        
-        //        self.photo.image = UIImage(data: NSData(contentsOfFile: dataJSON["picture"].stringValue)!)
+        let url = NSURL(string: dataJSON["picture"].stringValue)
+        let data = NSData(contentsOfURL: url!)
+        if data != nil {
+            imageView.image = UIImage(data: data!)
+            self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+            self.imageView.clipsToBounds = true;
+        }
 
     }
     
     func populate() {
         self.navigationItem.title = dataJSON["name"].stringValue
-        
-//        company.text = dataJSON["company"].stringValue
-//        phone.text = dataJSON["phone"].stringValue
-//        email.text = dataJSON["email"].stringValue
-        //skills.text = dataJSON["skills"].stringValue
-    
-//
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,15 +86,4 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
