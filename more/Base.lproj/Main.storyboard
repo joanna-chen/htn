@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hackerCell" rowHeight="88" id="M8I-ld-Mpn" customClass="HackersTableViewCell" customModule="more" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="hackerCell" rowHeight="88" id="M8I-ld-Mpn" customClass="HackersTableViewCell" customModule="more" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="M8I-ld-Mpn" id="Jqm-kb-uuE">
