@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>HanekeSwift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Pods-more.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,12 +42,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7DDF79495F24B309AF089ACC99FC1151</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>815E824E47F04B60B7CBF1AD07AC9846</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>89D07FD9520C59BDDBBA31E83AEE1284</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A51C1A9878F3E152C49D9C695841003</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A05BA7AD62D8553AFAEC7D77FA736F8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

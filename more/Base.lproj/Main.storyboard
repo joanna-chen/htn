@@ -18,19 +18,19 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="hackerCell" rowHeight="88" id="M8I-ld-Mpn" customClass="HackersTableViewCell" customModule="more" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="M8I-ld-Mpn" id="Jqm-kb-uuE">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M8I-ld-Mpn" id="Jqm-kb-uuE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="87.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkL-o2-LmC">
-                                            <rect key="frame" x="78" y="18" width="499" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkL-o2-LmC">
+                                            <rect key="frame" x="78" y="18" width="42" height="20.5"/>
                                             <accessibility key="accessibilityConfiguration" identifier="hackerCell"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I3Q-u3-BPH">
-                                            <rect key="frame" x="20" y="19" width="50" height="50"/>
+                                            <rect key="frame" x="12" y="18" width="50" height="50"/>
                                             <accessibility key="accessibilityConfiguration" identifier="hackerCell">
                                                 <bool key="isElement" value="YES"/>
                                             </accessibility>
@@ -42,23 +42,28 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="I3Q-u3-BPH" firstAttribute="top" secondItem="Jqm-kb-uuE" secondAttribute="topMargin" constant="15" id="1wd-cF-EZw"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="I3Q-u3-BPH" secondAttribute="bottom" constant="10" id="Alb-Z2-6pl"/>
-                                        <constraint firstItem="I3Q-u3-BPH" firstAttribute="leading" secondItem="Jqm-kb-uuE" secondAttribute="leadingMargin" constant="10" id="C1I-1v-8MH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="I3Q-u3-BPH" secondAttribute="bottom" constant="11.5" id="Alb-Z2-6pl"/>
                                         <constraint firstItem="TkL-o2-LmC" firstAttribute="top" secondItem="Jqm-kb-uuE" secondAttribute="topMargin" constant="10" id="I5X-pL-OBW"/>
                                         <constraint firstItem="TkL-o2-LmC" firstAttribute="top" secondItem="I3Q-u3-BPH" secondAttribute="top" id="JhA-97-oMW"/>
                                         <constraint firstItem="I3Q-u3-BPH" firstAttribute="top" secondItem="Jqm-kb-uuE" secondAttribute="topMargin" constant="5" id="TMA-Bs-Shl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TkL-o2-LmC" secondAttribute="trailing" id="YzO-0O-2dn"/>
+                                        <constraint firstItem="TkL-o2-LmC" firstAttribute="leading" secondItem="Jqm-kb-uuE" secondAttribute="leadingMargin" constant="70" id="c4U-IX-Mey"/>
                                         <constraint firstItem="TkL-o2-LmC" firstAttribute="leading" secondItem="I3Q-u3-BPH" secondAttribute="trailing" constant="10" id="dGv-8c-OcB"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="I3Q-u3-BPH" secondAttribute="bottom" constant="15" id="hMi-jb-hPx"/>
                                         <constraint firstItem="I3Q-u3-BPH" firstAttribute="top" secondItem="Jqm-kb-uuE" secondAttribute="topMargin" constant="5" id="hws-o5-NDZ"/>
+                                        <constraint firstItem="TkL-o2-LmC" firstAttribute="leading" secondItem="I3Q-u3-BPH" secondAttribute="trailing" constant="8" id="sn1-5P-HAU"/>
                                         <constraint firstItem="I3Q-u3-BPH" firstAttribute="top" secondItem="Jqm-kb-uuE" secondAttribute="topMargin" constant="10" id="x08-NY-z9Y"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="JhA-97-oMW"/>
+                                            <exclude reference="YzO-0O-2dn"/>
+                                            <exclude reference="dGv-8c-OcB"/>
+                                            <exclude reference="sn1-5P-HAU"/>
                                             <exclude reference="1wd-cF-EZw"/>
                                             <exclude reference="TMA-Bs-Shl"/>
                                             <exclude reference="hMi-jb-hPx"/>
                                             <exclude reference="hws-o5-NDZ"/>
-                                            <exclude reference="JhA-97-oMW"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

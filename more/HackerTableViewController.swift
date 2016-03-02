@@ -8,10 +8,11 @@
 
 import UIKit
 import SwiftyJSON
+import Haneke
 
 class HackerTableViewController: UITableViewController {
     
-    var json : JSON!
+    var json : SwiftyJSON.JSON!
     var selected = 0;
 
     override func viewDidLoad() {
@@ -67,15 +68,19 @@ class HackerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("hackerCell", forIndexPath: indexPath) as! HackersTableViewCell
-
-        let url = NSURL(string: self.json[indexPath.row]["picture"].stringValue)
-        let data = NSData(contentsOfURL: url!)
-        if data != nil {
-            cell.imageView!.image = UIImage(data: data!)
-            cell.imageView!.layer.cornerRadius = cell.imageView!.frame.size.width / 2;
-            cell.imageView!.clipsToBounds = true
-        }
         
+        cell.imageView?.hnk_setImageFromURL(NSURL(string: self.json[indexPath.row]["picture"].stringValue)!)
+        cell.imageView!.layer.cornerRadius = cell.imageView!.frame.size.width / 2;
+        cell.imageView!.clipsToBounds = true
+//
+//        let url = NSURL(string: self.json[indexPath.row]["picture"].stringValue)
+//        let data = NSData(contentsOfURL: url!)
+//        if data != nil {
+//            cell.imageView!.image = UIImage(data: data!)
+//            cell.imageView!.layer.cornerRadius = cell.imageView!.frame.size.width / 2;
+//            cell.imageView!.clipsToBounds = true
+//        }
+//        
         var str : String = ""
         let skills = self.json[indexPath.row]["skills"]
         
